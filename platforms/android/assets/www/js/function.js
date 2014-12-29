@@ -1,15 +1,42 @@
 function button(){
 
-    alert("asdf");
+    alert("test");
 }
 
-function create_folder(){
+function create_file(){
 
-    window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, onInitFs, errorHandler);
+    alert("test");
+
+    window.requestFileSystem(window.PERSISTENT, onInitFs(), errorHandler());
+
 
     function onInitFs(fs) {
+        alert("test");
 
-        alert('Opened file system: ' + fs.name);
+        fs.root.getFile('looog.txt', {create: true}, function(fileEntry) {
+            alert("test");
+
+            // Create a FileWriter object for our FileEntry (log.txt).
+            fileEntry.createWriter(function(fileWriter) {
+                alert("test");
+
+                fileWriter.onwriteend = function(e) {
+                    alert('Write completed.');
+                };
+
+                fileWriter.onerror = function(e) {
+                    alert('Write failed: ' + e.toString());
+                };
+
+                // Create a new Blob and write it to log.txt.
+                var bb = new BlobBuilder(); // Note: window.WebKitBlobBuilder in Chrome 12.
+                bb.append('Lorem Ipsum');
+                fileWriter.write(bb.getBlob('text/plain'));
+
+            }, errorHandler());
+
+        }, errorHandler());
+
     }
 
     function errorHandler(e) {
