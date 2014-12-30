@@ -33,11 +33,12 @@
         <div>
             <h1>PhoneGap</h1>
             <div id="deviceready" class="blink">
-                <p class="text_1">Connecting to Device</p>
-                <p class="text_1">Device is Ready</p>
-                <button onclick="button()">BOTON DE MENSAJE</button>
+
                 <input type="text" size="10" id="text_folder">
                 <button onclick="create_folder(document.getElementById('text_folder').value)">Nueva carpeta</button>
+
+                <input type="text" size="10" id="text_file">
+                <button onclick="create_file(document.getElementById('text_file').value)">Nuevo archivo</button>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
