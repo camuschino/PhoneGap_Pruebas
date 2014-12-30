@@ -1,19 +1,18 @@
 function button(){
-
     alert("test");
 }
 
-function create_file(){
+function create_folder(folder_name){
+
+    alert('La carpeta de llamara : ' + folder_name);
 
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 
-    function fail() {
-        alert("failed to get filesystem");
-    }
-
     function gotFS(fileSystem) {
-        alert("filesystem got");
-        fileSystem.root.getDirectory("Carpeta", {
+
+        alert("File system recived");
+
+        fileSystem.root.getDirectory(folder_name, {
             create : true,
             exclusive : false
         }, dirReady, fail);
@@ -22,6 +21,10 @@ function create_file(){
     function dirReady(entry) {
         window.appRootDir = entry;
         alert(JSON.stringify(window.appRootDir));
+    }
+
+    function fail() {
+        alert("fCreate folder fail");
     }
 
 }
