@@ -60,7 +60,7 @@ function create_folder(folder_name) {
     }
 }
 
-function create_file(file_name) {
+function create_file(file_name, file_text) {
 
     alert('El archivo: ' + file_name);
 
@@ -77,26 +77,12 @@ function create_file(file_name) {
     }
 
     function FileReady(fileEntry) {
-        alert(1);
+        alert("Archivo creado.");
+
 // Create a FileWriter object for our FileEntry (log.txt).
         fileEntry.createWriter(function(fileWriter) {
-            alert(2);
-
-            fileWriter.onwriteend = function(e) {
-                alert('Write completed.');
-            };
-
-            fileWriter.onerror = function(e) {
-                alert('Write failed: ' + e.toString());
-            };
-
-            // Create a new Blob and write it to log.txt.
-            var bb = new BlobBuilder();
-            bb.append('Lorem Ipsum');
-            alert(3);
-
-            fileWriter.write(bb.getBlob('text/plain'));
-
+            alert("Archivo escrito.");
+            fileWriter.write(file_text);
         }, fail);
     }
 
