@@ -117,3 +117,31 @@ function create_file(file_name, file_text) {
         alert('Error: ' + msg);
     }
 }
+
+/*
+* Funciones referentes al manejo
+* y manipulacion de bases de datos
+* */
+function prepareDatabase(ready, error) {
+    return openDatabase('documentos', '1.0', 'Offline document storage', 5*1024*1024, function (db) {
+        db.changeVersion('', '1.0', function (t) {
+            t.executeSql('CREATE TABLE docids (id, name)');
+        }, error);
+    });
+}
+function showDocCount(db, span) {
+    db.readTransaction(function (t) {
+        t.executeSql('SELECT COUNT(*) AS c FROM docids', [], function (t, r) {
+            span.textContent = r.rows[0].c;
+        }, function (t, e) {
+            // couldn't read database
+            span.textContent = '(unknown: ' + e.message + ')';
+        });
+    });
+}
+
+
+function crearDb(){
+    window.
+}
+
