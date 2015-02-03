@@ -121,22 +121,66 @@ function create_file(file_name, file_text) {
 /*
 * Funciones referentes al manejo
 * y manipulacion de bases de datos
+*
+*POSIBLES ERRORES EN EL TRATO DE BD
+ UNKNOWN_ERR = 0;
+
+ DATABASE_ERR = 1;
+ VERSION_ERR = 2;
+
+ TOO_LARGE_ERR = 3;
+ QUOTA_ERR = 4;
+ SYNTAX_ERR = 5;
+ CONSTRAINT_ERR = 6;
+ TIMEOUT_ERR = 7;
 * */
-function prepareDatabase(ready, error) {
-    return openDatabase('documentos', '1.0', 'Offline document storage', 5*1024*1024, function (db) {
-        db.changeVersion('', '1.0', function (t) {
-            t.executeSql('CREATE TABLE docids (id, name)');
-        }, error);
-    });
-}
-function showDocCount(db, span) {
-    db.readTransaction(function (t) {
-        t.executeSql('SELECT COUNT(*) AS c FROM docids', [], function (t, r) {
-            span.textContent = r.rows[0].c;
-        }, function (t, e) {
-            // couldn't read database
-            span.textContent = '(unknown: ' + e.message + ')';
-        });
-    });
+
+// Cordova is ready
+//
+ function CrearDB() {
+     var db = window.openDatabase("phonegapspain", "1.0", "Test DB", 100000);
+     db.transaction(populateDB, errorCB, successCB);     }
+
+ // Populate the database
+ function populateDB(tx) {
+     tx.executeSql('DROP TABLE IF EXISTS DEMO');
+     tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+     tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+     tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+ }
+
+ // Transaction error callback
+ function errorCB(tx, err) {
+     alert("Error processing SQL: "+err);
+ }
+
+ // Transaction success callback
+function successCB() {
+    alert("success!");
 }
 
+var ultimallave;
+
+function ConsultarDB(){
+    var db = window.openDatabase("phonegapspain", "1.0", "Test DB", 100000);
+
+db.transaction(datosSql ,errorCB, successCB);
+
+    function errorCB(err) {
+        console.log("Error processing SQL: "+err.code);
+    }
+
+    function successCB(tx,results) {
+        console.log("transaccion sql, OK.");
+    }
+
+    //SENTENCIAS SQL
+    function datosSql(tx,results){
+        tx.
+
+        tx.executeSql('SELECT * FROM DEMO order by id DESC limit 1',[],function (tx, results){
+            alert(results.rows.item(0).data.toString());
+        });
+
+    }
+}

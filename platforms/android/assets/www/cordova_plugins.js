@@ -150,7 +150,8 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.file": "1.3.2"
+    "org.apache.cordova.file": "1.3.2",
+    "com.msopentech.websql": "0.0.7"
 }
 // BOTTOM OF METADATA
 });
