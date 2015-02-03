@@ -140,8 +140,3 @@ function showDocCount(db, span) {
     });
 }
 
-
-function crearDb(){
-    window.
-}
-
