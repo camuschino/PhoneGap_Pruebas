@@ -121,6 +121,18 @@ function create_file(file_name, file_text) {
 /*
 * Funciones referentes al manejo
 * y manipulacion de bases de datos
+*
+*POSIBLES ERRORES EN EL TRATO DE BD
+ UNKNOWN_ERR = 0;
+
+ DATABASE_ERR = 1;
+ VERSION_ERR = 2;
+
+ TOO_LARGE_ERR = 3;
+ QUOTA_ERR = 4;
+ SYNTAX_ERR = 5;
+ CONSTRAINT_ERR = 6;
+ TIMEOUT_ERR = 7;
 * */
 
 // Cordova is ready
@@ -164,6 +176,8 @@ db.transaction(datosSql ,errorCB, successCB);
 
     //SENTENCIAS SQL
     function datosSql(tx,results){
+        tx.
+
         tx.executeSql('SELECT * FROM DEMO order by id DESC limit 1',[],function (tx, results){
             alert(results.rows.item(0).data.toString());
         });
