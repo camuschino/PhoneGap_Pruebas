@@ -29,6 +29,7 @@
 /home/chinito/Pruebas/platforms/android/assets/www/cordova.js \
 /home/chinito/Pruebas/platforms/android/assets/www/icon.png \
 /home/chinito/Pruebas/platforms/android/assets/www/css \
+/home/chinito/Pruebas/platforms/android/assets/www/PruebasJs.html \
 /home/chinito/Pruebas/platforms/android/assets/www/index.html \
 /home/chinito/Pruebas/platforms/android/assets/www/img \
 /home/chinito/Pruebas/platforms/android/assets/www/plugins \
@@ -37,6 +38,7 @@
 /home/chinito/Pruebas/platforms/android/assets/www/spec \
 /home/chinito/Pruebas/platforms/android/assets/www/js \
 /home/chinito/Pruebas/platforms/android/assets/www/css/style.css \
+/home/chinito/Pruebas/platforms/android/assets/www/css/PruebasCss.css \
 /home/chinito/Pruebas/platforms/android/assets/www/css/index.css \
 /home/chinito/Pruebas/platforms/android/assets/www/img/logo.png \
 /home/chinito/Pruebas/platforms/android/assets/www/plugins/org.apache.cordova.file \
@@ -132,6 +134,7 @@
 /home/chinito/Pruebas/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine-html.js \
 /home/chinito/Pruebas/platforms/android/assets/www/spec/lib/jasmine-1.2.0/MIT.LICENSE \
 /home/chinito/Pruebas/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.js \
+/home/chinito/Pruebas/platforms/android/assets/www/js/PruebasJs.js \
 /home/chinito/Pruebas/platforms/android/assets/www/js/function.js \
 /home/chinito/Pruebas/platforms/android/assets/www/js/index.js \
 /home/chinito/Pruebas/platforms/android/ant-build/AndroidManifest.xml \
